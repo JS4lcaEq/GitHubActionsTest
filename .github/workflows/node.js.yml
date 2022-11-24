@@ -34,6 +34,7 @@ jobs:
     - name: Display structure of files
       run: ls -R
   control:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Display structure of files
