@@ -35,6 +35,12 @@ jobs:
       run: ls -R
   control:
     needs: build
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/download-artifact@v3
@@ -42,4 +48,7 @@ jobs:
         name: my-artifact
     - name: Display structure of files
       run: ls -R
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
     
