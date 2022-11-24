@@ -37,6 +37,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: my-artifact
     - name: Display structure of files
       run: ls -R
     
