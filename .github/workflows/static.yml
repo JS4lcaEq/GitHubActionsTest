@@ -1,4 +1,4 @@
-name: Deploy and public to Pages
+name: Deploy and public VUE site to Pages
 
 on:
   push:
@@ -19,7 +19,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -30,7 +29,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         
-      - name: Use Node.js 18.x
+      - name: Use Node.js 18.x build VUE
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
