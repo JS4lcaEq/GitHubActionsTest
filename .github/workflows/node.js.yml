@@ -29,10 +29,10 @@ jobs:
         name: my-artifact
         path: distribute/
 
-    - uses: actions/download-artifact@v3
-      with:
-        name: my-artifact
+    #- uses: actions/download-artifact@v3
+    #  with:
+    #    name: my-artifact
     
-    - name: Display structure of downloaded files
+    - name: Display structure of files
       run: ls -R
     
