@@ -26,18 +26,11 @@ jobs:
       with:
         name: my-artifact
         path: distribute/
-
-    #- uses: actions/download-artifact@v3
-    #  with:
-    #    name: my-artifact
     
     - name: Display structure of files
       run: ls -R
   control:
     needs: build
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
     environment:
       name: my-artifact
       url: ${{ steps.deployment.outputs.page_url }}
@@ -48,7 +41,5 @@ jobs:
         name: my-artifact
     - name: Display structure of files
       run: ls -R
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v1
-    
+
+
